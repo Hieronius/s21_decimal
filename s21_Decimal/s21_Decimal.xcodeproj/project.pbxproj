@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD3C53EA2BA3DA1A004699DA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DD3C53E92BA3DA1A004699DA /* main.c */; };
+		DD3C53EA2BA3DA1A004699DA /* s21_decimal.h in Sources */ = {isa = PBXBuildFile; fileRef = DD3C53E92BA3DA1A004699DA /* s21_decimal.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		DD3C53E62BA3DA1A004699DA /* s21_Decimal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = s21_Decimal; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD3C53E92BA3DA1A004699DA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DD3C53E92BA3DA1A004699DA /* s21_decimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = s21_decimal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		DD3C53E82BA3DA1A004699DA /* s21_Decimal */ = {
 			isa = PBXGroup;
 			children = (
-				DD3C53E92BA3DA1A004699DA /* main.c */,
+				DD3C53E92BA3DA1A004699DA /* s21_decimal.h */,
 			);
 			path = s21_Decimal;
 			sourceTree = "<group>";
@@ -119,7 +119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3C53EA2BA3DA1A004699DA /* main.c in Sources */,
+				DD3C53EA2BA3DA1A004699DA /* s21_decimal.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
