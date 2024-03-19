@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 #define MINUS 0x80000000 // 10000000 00000000 00000000 00000000
 #define SCALE 0x00ff0000 // 00000000 11111111 00000000 00000000
 #define MAX_NUMBER 79228162514264337593543950335
@@ -56,6 +57,13 @@ int s21_round(s21_decimal value, s21_decimal *result);
 int s21_truncate(s21_decimal value, s21_decimal *result);
 //Возвращает результат умножения указанного Decimal на -1.
 int s21_negate(s21_decimal value, s21_decimal *result);
+
+// MARK: Дополнительные функции
+// Копируем содержимое из source в destination
+s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source);
+s21_decimal* s21_reset(s21_decimal* value);
+int s21_getSign(s21_decimal value);
+s21_decimal *s21_setSign(s21_decimal *value, int bit);
 
 /*
  
