@@ -53,6 +53,10 @@
  first three elements of decimal data structure should store "mantissa" and the last of for instructions
  */
 
+typedef struct {
+  unsigned int bits[4];
+} s21_decimal;
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
