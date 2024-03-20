@@ -13,11 +13,24 @@ int s21_floor(s21_decimal value, s21_decimal *result) {
       return 0;
 }
 // Округляет Decimal до ближайшего целого числа.
-int s21_round(s21_decimal value, s21_decimal *result);
+int s21_round(s21_decimal value, s21_decimal *result) {
+    if (!s21_truncate(value, result) && !s21_is_equal(value, *result)) {
+        if (s21_getSign(value)) {
+            s21_sub(value, ((s21_decimal){{5, 0, 0, 65536}}), &value);
+        } else {
+          s21_add(value, ((s21_decimal){{5, 0, 0, 65536}}), &value);
+        s21_truncate(value, result);
+      }
+      return 0;
+}
 
 
 // Возвращает целые цифры указанного Decimal числа; любые дробные цифры отбрасываются, включая конечные нули.
-int s21_truncate(s21_decimal value, s21_decimal *result);
+int s21_truncate(s21_decimal value, s21_decimal *result) {
+    s21_copy(s21_reset(result),
+               s21_getScale(value) ? *s21_decreaseScale(&value, s21_getScale(value)) : value);
+      return 0;
+}
 
 
 //Возвращает результат умножения указанного Decimal на -1.
@@ -45,5 +58,33 @@ int s21_getSign(s21_decimal value) {
 s21_decimal *s21_setSign(s21_decimal *value, int bit) {
   value->bits[3] =
       (bit) ? (value->bits[3] | (1u << 31)) : (value->bits[3] & ~(1u << 31));
+  return value;
+}
+
+int s21_getScale(s21_decimal value) {
+  int result = (char)(value.bits[3] >> 16);
+  return result;
+}
+
+s21_decimal *s21_decreaseScale(s21_decimal *value, int shift) {
+  for (int y = 0; y < shift; y += 1) {
+    unsigned long long overflow = value->bits[2];
+    for (int x = 2; x >= 0; x -= 1) {
+      value->bits[x] = overflow / 10;
+      overflow =
+          (overflow % 10) * (S21_MAX_UINT + 1) + value->bits[x ? x - 1 : x];
+    }
+  }
+  s21_setScale(value, (s21_getScale(*value) - shift));
+  return value;
+}
+
+s21_decimal *s21_setScale(s21_decimal *value, int scale) {
+  if (scale >= 0 && scale <= 28) {
+    int sign = s21_getSign(*value);
+    value->bits[3] &= ~(0xFF << 16);
+    value->bits[3] |= scale << 16;
+    sign ? s21_setSign(value, 1) : value;
+  }
   return value;
 }

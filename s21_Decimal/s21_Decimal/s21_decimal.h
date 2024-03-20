@@ -2,18 +2,24 @@
 #include <stdlib.h>
 #include <math.h>
 #include <limits.h>
-#define MINUS 0x80000000 // 10000000 00000000 00000000 00000000
-#define SCALE 0x00ff0000 // 00000000 11111111 00000000 00000000
-#define MAX_NUMBER 79228162514264337593543950335
-#define MIN_NUMBER -79228162514264337593543950335
-#define DEFAULT_NUMBER 0
+#define S21_MINUS 0x80000000 // 00000000 00000000 00000000 00000000
+#define S21_SCALE 0x00ff0000 // 00000000 11111111 00000000 00000000
+                             // bits[3] (bits[2]  bits[1]  bits[0]) - mantissa 
+#define S21_MAX_NUMBER 79228162514264337593543950335
+#define S21_MIN_NUMBER -79228162514264337593543950335
+#define S21_DEFAULT_NUMBER 0
+#define S21_MAX_UINT 4294967295
+
+int number = 4
+double number = 8
+decimal number
 
 // Decimal структура
 typedef struct {
-  unsigned int bits[4];
+  unsigned int bits[4]; // 79228162514264337593543950335
 } s21_decimal;
 
-// MARK: Арифметические операторы
+// MARK: Арифметические операторы 
 // Сложение +
 int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 // Вычитание -
@@ -64,6 +70,10 @@ s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source);
 s21_decimal* s21_reset(s21_decimal* value);
 int s21_getSign(s21_decimal value);
 s21_decimal *s21_setSign(s21_decimal *value, int bit);
+int s21_getScale(s21_decimal value);
+s21_decimal *s21_decreaseScale(s21_decimal *value, int shift);
+s21_decimal *s21_increaseScale(s21_decimal *value, int shift);
+s21_decimal *s21_setScale(s21_decimal *value, int scale);
 
 /*
  
