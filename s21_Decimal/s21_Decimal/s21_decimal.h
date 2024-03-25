@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <limits.h>
-#define S21_MINUS 0x80000000 // 00000000 00000000 00000000 00000000
-#define S21_SCALE 0x00ff0000 // 00000000 11111111 00000000 00000000
-                             // bits[3] (bits[2]  bits[1]  bits[0]) - mantissa 
+#define S21_MINUS 0x80000000 // 10000000 00000000 00000000 00000000
+#define S21_SCALE 0x00ff0000 // 00000000 11111111 00000000 00000111
+                             // bits[3] (bits[2]  bits[1]  bits[0]) - mantissa
 #define S21_MAX_NUMBER 79228162514264337593543950335
 #define S21_MIN_NUMBER -79228162514264337593543950335
 #define S21_DEFAULT_NUMBER 0
@@ -12,7 +12,7 @@
 
 int number = 4
 double number = 8
-decimal number
+decimal number = 79228162514264337593543950335
 
 // Decimal структура
 typedef struct {
