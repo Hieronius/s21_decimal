@@ -61,6 +61,9 @@ s21_decimal *s21_setSign(s21_decimal *value, int bit) {
   return value;
 }
 
+// decimal number = 563
+// 1 000 000 000 - precision
+// .00000000 - scale
 int s21_getScale(s21_decimal value) {
   int result = (char)(value.bits[3] >> 16);
   return result;
