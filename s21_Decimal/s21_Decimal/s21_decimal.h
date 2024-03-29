@@ -10,10 +10,6 @@
 #define S21_DEFAULT_NUMBER 0
 #define S21_MAX_UINT 4294967295
 
-int number = 4
-double number = 8
-decimal number = 79228162514264337593543950335
-
 // Decimal структура
 typedef struct {
   unsigned int bits[4]; // 79228162514264337593543950335
