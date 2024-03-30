@@ -40,7 +40,7 @@ int s21_is_equal(s21_decimal, s21_decimal);
 int s21_is_not_equal(s21_decimal, s21_decimal);
 
 
-// MARK: Преобразовали
+// MARK: Преобразователи
 // Из int
 int s21_from_int_to_decimal(int src, s21_decimal *dst);
 // Из float
