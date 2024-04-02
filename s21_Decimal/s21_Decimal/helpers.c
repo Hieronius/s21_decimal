@@ -113,9 +113,9 @@ s21_decimal *s21_convert(s21_decimal *value) {
   s21_decimal result = {{0, 0, 0, 0}};
   s21_decimal add = {{1, 0, 0, 0}};
   for (int x = 0; x < 3; x += 1) value->bits[x] = ~value->bits[x];
-  addBit(*value, add, &result);
+  s21_addBit(*value, add, &result);
   for (int x = 0; x < 3; x += 1) value->bits[x] = result.bits[x];
-  setBit(value, 97, 1);
+  s21_setBit(value, 97, 1);
   return value;
 }
 
@@ -128,7 +128,7 @@ int s21_getFloatExp(float *value) {
 }
 
 s21_decimal *s21_leftShift(s21_decimal *value, int shift) {
-  if (!(getBitLast(*value) + shift > 95)) {
+  if (!(s21_getBitLast(*value) + shift > 95)) {
     for (int y = 0; y < shift; y += 1) {
       int bitTransfer_1 = s21_getBit(*value, 31);
       int bitTransfer_2 = s21_getBit(*value, 63);

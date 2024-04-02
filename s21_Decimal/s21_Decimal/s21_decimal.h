@@ -23,6 +23,10 @@ int s21_sub(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 // Умножение *
 int s21_mul(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 // Деление /
+// Вспомогательная функция
+int s21_div1(s21_decimal value_1, s21_decimal value_2, s21_decimal *result,
+             s21_decimal *tmp);
+// Основная функция
 int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 
 // MARK: - Операторы сравнения
@@ -61,20 +65,24 @@ int s21_truncate(s21_decimal value, s21_decimal *result);
 int s21_negate(s21_decimal value, s21_decimal *result);
 
 // MARK: - Дополнительные функции
-int getBit(s21_decimal value, int bit);
-int getBitLast(s21_decimal value);
+int s21_getBit(s21_decimal value, int bit);
+int s21_getBitLast(s21_decimal value);
+s21_decimal *s21_setBit(s21_decimal *value, int pos, int bit);
+int s21_addBit(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
+
 // Копируем содержимое из source в destination
 s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source);
 s21_decimal* s21_reset(s21_decimal* value);
-s21_decimal *setBit(s21_decimal *value, int pos, int bit);
-int addBit(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
+
 int s21_getSign(s21_decimal value);
 s21_decimal *s21_setSign(s21_decimal *value, int bit);
+
 int s21_getScale(s21_decimal value);
 s21_decimal *s21_setScale(s21_decimal *value, int scale);
 s21_decimal *s21_decreaseScale(s21_decimal *value, int shift);
 s21_decimal *s21_increaseScale(s21_decimal *value, int shift);
 void s21_alignmentScale(s21_decimal *value_1, s21_decimal *value_2);
+
 s21_decimal *s21_convert(s21_decimal *value);
 int s21_isNull(s21_decimal value);
 int s21_getFloatExp(float *value);

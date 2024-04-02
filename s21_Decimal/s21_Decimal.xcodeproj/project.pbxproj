@@ -11,6 +11,7 @@
 		DD9C2ABA2BBB9152009CA739 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2AB92BBB9152009CA739 /* Makefile */; };
 		DD9C2ABC2BBB9598009CA739 /* s21_test.c in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2ABB2BBB9598009CA739 /* s21_test.c */; };
 		DD9C2ABE2BBB996F009CA739 /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2ABD2BBB996F009CA739 /* helpers.c */; };
+		DD9C2AC02BBBA1CA009CA739 /* arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2ABF2BBBA1CA009CA739 /* arithmetic.c */; };
 		DDA7A5AF2BA9D08400588BA0 /* other.c in Sources */ = {isa = PBXBuildFile; fileRef = DDA7A5AE2BA9D08400588BA0 /* other.c */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		DD9C2AB92BBB9152009CA739 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		DD9C2ABB2BBB9598009CA739 /* s21_test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = s21_test.c; sourceTree = "<group>"; };
 		DD9C2ABD2BBB996F009CA739 /* helpers.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = helpers.c; sourceTree = "<group>"; };
+		DD9C2ABF2BBBA1CA009CA739 /* arithmetic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = arithmetic.c; sourceTree = "<group>"; };
 		DDA7A5AE2BA9D08400588BA0 /* other.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = other.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				DD9C2ABB2BBB9598009CA739 /* s21_test.c */,
 				DDA7A5AE2BA9D08400588BA0 /* other.c */,
 				DD9C2ABD2BBB996F009CA739 /* helpers.c */,
+				DD9C2ABF2BBBA1CA009CA739 /* arithmetic.c */,
 			);
 			path = s21_Decimal;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD9C2ABC2BBB9598009CA739 /* s21_test.c in Sources */,
+				DD9C2AC02BBBA1CA009CA739 /* arithmetic.c in Sources */,
 				DD9C2ABA2BBB9152009CA739 /* Makefile in Sources */,
 				DDA7A5AF2BA9D08400588BA0 /* other.c in Sources */,
 				DD3C53EA2BA3DA1A004699DA /* s21_decimal.h in Sources */,
