@@ -4,7 +4,7 @@ int main() {
     return 0;
 }
 
-// MARK: Другие функции
+// MARK: - Другие функции
 // Округляет указанное Decimal число до ближайшего целого числа в сторону отрицательной бесконечности.
 int s21_floor(s21_decimal value, s21_decimal *result) {
       if (!s21_truncate(value, s21_reset(result)) && s21_getSign(value) &&
@@ -61,9 +61,6 @@ s21_decimal *s21_setSign(s21_decimal *value, int bit) {
   return value;
 }
 
-// decimal number = 563
-// 1 000 000 000 - precision
-// .00000000 - scale
 int s21_getScale(s21_decimal value) {
   int result = (char)(value.bits[3] >> 16);
   return result;
