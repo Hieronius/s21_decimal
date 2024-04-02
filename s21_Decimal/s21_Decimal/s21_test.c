@@ -542,7 +542,7 @@ START_TEST(is_not_equal_8) {
 END_TEST
 
 START_TEST(sub_0) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
@@ -551,15 +551,15 @@ END_TEST
 
 START_TEST(sub_1) {
   s21_decimal val1 = {{2, 0, 0, 0}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(sub_2) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
@@ -590,7 +590,7 @@ START_TEST(sub_5) {
 END_TEST
 
 START_TEST(sub_6) {
-  s21_decimal val1 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
@@ -598,7 +598,7 @@ START_TEST(sub_6) {
 END_TEST
 
 START_TEST(sub_7) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{8, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
@@ -607,7 +607,7 @@ END_TEST
 
 START_TEST(sub_8) {
   s21_decimal val1 = {{2, 0, 0, 0}};
-  s21_decimal val2 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
@@ -615,14 +615,14 @@ END_TEST
 
 START_TEST(sub_9) {
   s21_decimal val1 = {{8, 0, 0, 0}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(sub_10) {
-  s21_decimal val1 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
@@ -630,7 +630,7 @@ START_TEST(sub_10) {
 END_TEST
 
 START_TEST(sub_11) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{4, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(2, s21_sub(val1, val2, &res));
@@ -638,7 +638,7 @@ START_TEST(sub_11) {
 END_TEST
 
 START_TEST(sub_12) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal val2 = {{4, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
@@ -646,16 +646,16 @@ START_TEST(sub_12) {
 END_TEST
 
 START_TEST(sub_13) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{4, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(sub_14) {
-  s21_decimal val1 = {{4, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal res;
   ck_assert_int_eq(2, s21_sub(val1, val2, &res));
 }
@@ -663,23 +663,23 @@ END_TEST
 
 START_TEST(sub_15) {
   s21_decimal val1 = {{4, 0, 0, 0}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(sub_16) {
-  s21_decimal val1 = {{4, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_sub(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(sub_17) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
-  s21_decimal val2 = {{4, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
+  s21_decimal val2 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(1, s21_sub(val1, val2, &res));
 }
@@ -687,7 +687,7 @@ END_TEST
 
 START_TEST(sub_18) {
   s21_decimal val1 = {{4, 0, 0, 0}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(1, s21_sub(val1, val2, &res));
 }
@@ -734,7 +734,7 @@ START_TEST(sub_21) {
 END_TEST
 
 START_TEST(add_0) {
-  s21_decimal val1 = {{15, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{15, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
@@ -743,14 +743,14 @@ END_TEST
 
 START_TEST(add_1) {
   s21_decimal val1 = {{15, 0, 0, 0}};
-  s21_decimal val2 = {{15, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{15, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(add_2) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal val2 = {{1, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(1, s21_add(val1, val2, &res));
@@ -758,8 +758,8 @@ START_TEST(add_2) {
 END_TEST
 
 START_TEST(add_3) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(2, s21_add(val1, val2, &res));
 }
@@ -782,7 +782,7 @@ START_TEST(add_5) {
 END_TEST
 
 START_TEST(add_6) {
-  s21_decimal val1 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
@@ -790,7 +790,7 @@ START_TEST(add_6) {
 END_TEST
 
 START_TEST(add_7) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{8, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
@@ -807,14 +807,14 @@ END_TEST
 
 START_TEST(add_9) {
   s21_decimal val1 = {{4, 0, 0, 0}};
-  s21_decimal val2 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(add_10) {
-  s21_decimal val1 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
@@ -822,7 +822,7 @@ START_TEST(add_10) {
 END_TEST
 
 START_TEST(add_11) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{4, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
@@ -830,16 +830,16 @@ START_TEST(add_11) {
 END_TEST
 
 START_TEST(add_12) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{4, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(2, s21_add(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(add_13) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
-  s21_decimal val2 = {{4, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
+  s21_decimal val2 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
 }
@@ -847,31 +847,31 @@ END_TEST
 
 START_TEST(add_14) {
   s21_decimal val1 = {{4, 0, 0, 0}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(add_15) {
-  s21_decimal val1 = {{4, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(add_16) {
-  s21_decimal val1 = {{4, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{4, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal res;
   ck_assert_int_eq(2, s21_add(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(add_17) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   setScale(&val1, 5);
   setScale(&val2, 3);
   s21_decimal res;
@@ -880,8 +880,8 @@ START_TEST(add_17) {
 END_TEST
 
 START_TEST(add_18) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   setScale(&val1, 5);
   setScale(&val2, 3);
   s21_decimal res;
@@ -890,7 +890,7 @@ START_TEST(add_18) {
 END_TEST
 
 START_TEST(mul_0) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mul(val1, val2, &res));
@@ -899,15 +899,15 @@ END_TEST
 
 START_TEST(mul_1) {
   s21_decimal val1 = {{2, 0, 0, 0}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mul(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(mul_2) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mul(val1, val2, &res));
 }
@@ -938,7 +938,7 @@ START_TEST(mul_5) {
 END_TEST
 
 START_TEST(mul_6) {
-  s21_decimal val1 = {{8, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{8, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mul(val1, val2, &res));
@@ -946,7 +946,7 @@ START_TEST(mul_6) {
 END_TEST
 
 START_TEST(mul_7) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{8, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mul(val1, val2, &res));
@@ -954,15 +954,15 @@ START_TEST(mul_7) {
 END_TEST
 
 START_TEST(mul_8) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(1, s21_mul(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(mul_9) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(2, s21_mul(val1, val2, &res));
@@ -970,7 +970,7 @@ START_TEST(mul_9) {
 END_TEST
 
 START_TEST(mul_10) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(1, s21_mul(val1, val2, &res));
@@ -978,7 +978,7 @@ START_TEST(mul_10) {
 END_TEST
 
 START_TEST(mul_11) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{0, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mul(val1, val2, &res));
@@ -986,7 +986,7 @@ START_TEST(mul_11) {
 END_TEST
 
 START_TEST(mul_12) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   setScale(&val1, 1);
@@ -995,7 +995,7 @@ START_TEST(mul_12) {
 END_TEST
 
 START_TEST(mul_13) {
-  s21_decimal val1 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val1 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal val2 = {{200, 0, 0, 0}};
   s21_decimal res = {{0}};
   setScale(&val2, 1);
@@ -1005,7 +1005,7 @@ START_TEST(mul_13) {
 END_TEST
 
 START_TEST(mul_14) {
-  s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
+  s21_decimal val2 = {{S21_MAX_UINT, S21_MAX_UINT, S21_MAX_UINT, 0}};
   s21_decimal val1 = {{20, 0, 0, 0}};
   s21_decimal res = {{0}};
   setScale(&val2, 1);
@@ -1015,7 +1015,7 @@ START_TEST(mul_14) {
 END_TEST
 
 START_TEST(div_0) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_div(val1, val2, &res));
@@ -1024,22 +1024,22 @@ END_TEST
 
 START_TEST(div_1) {
   s21_decimal val1 = {{2, 0, 0, 0}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_div(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(div_2) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_div(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(div_3) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{0, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(3, s21_div(val1, val2, &res));
@@ -1055,7 +1055,7 @@ START_TEST(div_4) {
 END_TEST
 
 START_TEST(mod_0) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mod(val1, val2, &res));
@@ -1064,22 +1064,22 @@ END_TEST
 
 START_TEST(mod_1) {
   s21_decimal val1 = {{2, 0, 0, 0}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mod(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(mod_2) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
-  s21_decimal val2 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
+  s21_decimal val2 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(0, s21_mod(val1, val2, &res));
 }
 END_TEST
 
 START_TEST(mod_3) {
-  s21_decimal val1 = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val1 = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal val2 = {{0, 0, 0, 0}};
   s21_decimal res = {{0}};
   ck_assert_int_eq(3, s21_mod(val1, val2, &res));
@@ -1106,7 +1106,7 @@ START_TEST(truncate_0) {
 END_TEST
 
 START_TEST(truncate_1) {
-  s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   ck_assert_int_eq(0, s21_truncate(val, &res));
   float fres = 0;
@@ -1117,7 +1117,7 @@ START_TEST(truncate_1) {
 END_TEST
 
 START_TEST(truncate_2) {
-  s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   ck_assert_int_eq(0, s21_truncate(val, &res));
   float fres = 0;
@@ -1128,7 +1128,7 @@ START_TEST(truncate_2) {
 END_TEST
 
 START_TEST(truncate_3) {
-  s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   setScale(&val, 5);
   ck_assert_int_eq(0, s21_truncate(val, &res));
@@ -1161,7 +1161,7 @@ START_TEST(negate_0) {
 END_TEST
 
 START_TEST(negate_1) {
-  s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   int sign_before = s21_getSign(val);
   s21_negate(val, &res);
@@ -1171,7 +1171,7 @@ START_TEST(negate_1) {
 END_TEST
 
 START_TEST(negate_2) {
-  s21_decimal val = {{0, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{0, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   int sign_before = s21_getSign(val);
   s21_negate(val, &res);
@@ -1198,7 +1198,7 @@ START_TEST(floor_0) {
 END_TEST
 
 START_TEST(floor_1) {
-  s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   s21_floor(val, &res);
   float fres = 0;
@@ -1208,7 +1208,7 @@ START_TEST(floor_1) {
 END_TEST
 
 START_TEST(floor_2) {
-  s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{2, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   setScale(&val, 5);
   s21_floor(val, &res);
@@ -1241,7 +1241,7 @@ START_TEST(round_0) {
 END_TEST
 
 START_TEST(round_1) {
-  s21_decimal val = {{3, 3, 3, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{3, 3, 3, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   ck_assert_int_eq(0, s21_round(val, &res));
 }
@@ -1256,7 +1256,7 @@ START_TEST(round_2) {
 END_TEST
 
 START_TEST(round_3) {
-  s21_decimal val = {{7, 7, 7, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{7, 7, 7, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   s21_setScale(&val, 5);
   ck_assert_int_eq(0, s21_round(val, &res));
@@ -1264,7 +1264,7 @@ START_TEST(round_3) {
 END_TEST
 
 START_TEST(round_4) {
-  s21_decimal val = {{25, 0, 0, ~(UINT_MAX / 2)}};
+  s21_decimal val = {{25, 0, 0, ~(S21_MAX_UINT / 2)}};
   s21_decimal res = {0};
   s21_setScale(&val, 1);
   ck_assert_int_eq(0, s21_round(val, &res));
