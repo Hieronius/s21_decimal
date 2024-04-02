@@ -4,7 +4,6 @@
 #include <limits.h>
 #define S21_MINUS 0x80000000 // 10000000 00000000 00000000 00000000
 #define S21_SCALE 0x00ff0000 // 00000000 11111111 00000000 00000111
-                             // bits[3] (bits[2]  bits[1]  bits[0]) - mantissa
 #define S21_MAX_NUMBER 79228162514264337593543950335
 #define S21_MIN_NUMBER -79228162514264337593543950335
 #define S21_DEFAULT_NUMBER 0
@@ -12,7 +11,8 @@
 
 // Decimal структура
 typedef struct {
-  unsigned int bits[4]; // 79228162514264337593543950335
+    unsigned int bits[4];
+    // bits[3] (bits[2]  bits[1]  bits[0]) - mantissa
 } s21_decimal;
 
 // MARK: Арифметические операторы 
@@ -25,10 +25,10 @@ int s21_mul(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 // Деление /
 int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 
-// MARK: Операторы сравнения
+// MARK: - Операторы сравнения
 // Меньше <
 int s21_is_less(s21_decimal, s21_decimal);
-//Меньше или равно <=
+// Меньше или равно <=
 int s21_is_less_or_equal(s21_decimal, s21_decimal);
 // Больше >
 int s21_is_greater(s21_decimal, s21_decimal);
@@ -40,7 +40,7 @@ int s21_is_equal(s21_decimal, s21_decimal);
 int s21_is_not_equal(s21_decimal, s21_decimal);
 
 
-// MARK: Преобразователи
+// MARK: - Преобразователи
 // Из int
 int s21_from_int_to_decimal(int src, s21_decimal *dst);
 // Из float
@@ -50,7 +50,7 @@ int s21_from_decimal_to_int(s21_decimal src, int *dst);
 // В float
 int s21_from_decimal_to_float(s21_decimal src, float *dst);
  
-// MARK: Другие функции
+// MARK: - Другие функции
 // Округляет указанное Decimal число до ближайшего целого числа в сторону отрицательной бесконечности.
 int s21_floor(s21_decimal value, s21_decimal *result);
 // Округляет Decimal до ближайшего целого числа.
@@ -60,7 +60,7 @@ int s21_truncate(s21_decimal value, s21_decimal *result);
 // Возвращает результат умножения указанного Decimal на -1.
 int s21_negate(s21_decimal value, s21_decimal *result);
 
-// MARK: Дополнительные функции
+// MARK: - Дополнительные функции
 // Копируем содержимое из source в destination
 s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source);
 s21_decimal* s21_reset(s21_decimal* value);
@@ -70,54 +70,3 @@ int s21_getScale(s21_decimal value);
 s21_decimal *s21_decreaseScale(s21_decimal *value, int shift);
 s21_decimal *s21_increaseScale(s21_decimal *value, int shift);
 s21_decimal *s21_setScale(s21_decimal *value, int scale);
-
-/*
- 
- Максимальные и минимальные значения INT32 и s21_decimal:
-
-     INT_MIN = -2 147 483 648
-     INT_MAX = 2 147 483 647
-
-     UNSIGNED INT_MAX = 4 294 967 295
-
-
-     DEC_MIN = - 79 228 162 514 264 337 593 543 950 335
-     DEC_MAX = 79 228 162 514 264 337 593 543 950 335
-
-     s21_decimal max 2^96
- 
- ----------------------------------------------------------
- 
- Базовые операции с битами:
- 
- // Проверка бита
- bool isSetBit(int number, int index) {
-    return (number & (1 << index) != 0;
- }
- 
- // Установка бита в 1
- int setBit(int number, int index) {
-    return number | (1 << index);
- }
- 
- // Инверсия бита
- int inverseBit(int number, int index) {
-    return number ^ (1 << index);
- }
- 
- // Установка бита в 0
- int resetBit(int number, int index) {
-    return number &~ (1 << index);
- }
- 
- --------------------------------------------------------------
- 
- if a1i + a2i + d == 0 => 0
- if a1i + a2i + d == 1 => 1
- if a1i + a2i + d == 2 => 0 AND 1 переносим в i + 1 = d
- if a1i + a2i + d == 3 => 1 AND 1 переносим в i + 1 = d
- 
- I should take an official definition of Xor/Xon and other bitwise operators here
- 
- first three elements of decimal data structure should store "mantissa" and the last of for instructions
- */
