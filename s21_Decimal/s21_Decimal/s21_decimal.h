@@ -15,6 +15,12 @@ typedef struct {
     // bits[3] (bits[2]  bits[1]  bits[0]) - mantissa
 } s21_decimal;
 
+// Вспомогательный элемент для convertors
+typedef union {
+  int ui;
+  float fl;
+} fbits;
+
 // MARK: Арифметические операторы 
 // Сложение +
 int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
