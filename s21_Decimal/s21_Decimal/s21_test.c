@@ -1152,9 +1152,9 @@ START_TEST(truncate_4) {
 START_TEST(negate_0) {
   s21_decimal val = {{2, 0, 0, 0}};
   s21_decimal res = {0};
-  int sign_before = getSign(val);
+  int sign_before = s21_getSign(val);
   s21_negate(val, &res);
-  int sign_after = getSign(res);
+  int sign_after = s21_getSign(res);
 
   ck_assert_int_ne(sign_before, sign_after);
 }
@@ -1163,9 +1163,9 @@ END_TEST
 START_TEST(negate_1) {
   s21_decimal val = {{2, 0, 0, ~(UINT_MAX / 2)}};
   s21_decimal res = {0};
-  int sign_before = getSign(val);
+  int sign_before = s21_getSign(val);
   s21_negate(val, &res);
-  int sign_after = getSign(res);
+  int sign_after = s21_getSign(res);
   ck_assert_int_ne(sign_before, sign_after);
 }
 END_TEST
@@ -1173,9 +1173,9 @@ END_TEST
 START_TEST(negate_2) {
   s21_decimal val = {{0, 0, 0, ~(UINT_MAX / 2)}};
   s21_decimal res = {0};
-  int sign_before = getSign(val);
+  int sign_before = s21_getSign(val);
   s21_negate(val, &res);
-  int sign_after = getSign(res);
+  int sign_after = s21_getSign(res);
   ck_assert_int_ne(sign_before, sign_after);
 }
 END_TEST
@@ -1183,9 +1183,9 @@ END_TEST
 START_TEST(negate_3) {
   s21_decimal val = {0};
   s21_decimal res = {0};
-  int sign_before = getSign(val);
+  int sign_before = s21_getSign(val);
   s21_negate(val, &res);
-  int sign_after = getSign(res);
+  int sign_after = s21_getSign(res);
   ck_assert_int_ne(sign_before, sign_after);
 }
 END_TEST
@@ -1221,7 +1221,7 @@ END_TEST
 START_TEST(floor_3) {
   s21_decimal val = {{2, 0, 0, 0}};
   s21_decimal res = {0};
-  setScale(&val, 5);
+  s21_setScale(&val, 5);
   s21_floor(val, &res);
   float fres = 0;
   s21_from_decimal_to_float(res, &fres);
@@ -1250,7 +1250,7 @@ END_TEST
 START_TEST(round_2) {
   s21_decimal val = {{3, 3, 3, 0}};
   s21_decimal res = {0};
-  setScale(&val, 5);
+  s21_setScale(&val, 5);
   ck_assert_int_eq(0, s21_round(val, &res));
 }
 END_TEST
@@ -1258,7 +1258,7 @@ END_TEST
 START_TEST(round_3) {
   s21_decimal val = {{7, 7, 7, ~(UINT_MAX / 2)}};
   s21_decimal res = {0};
-  setScale(&val, 5);
+  s21_setScale(&val, 5);
   ck_assert_int_eq(0, s21_round(val, &res));
 }
 END_TEST
@@ -1266,7 +1266,7 @@ END_TEST
 START_TEST(round_4) {
   s21_decimal val = {{25, 0, 0, ~(UINT_MAX / 2)}};
   s21_decimal res = {0};
-  setScale(&val, 1);
+  s21_setScale(&val, 1);
   ck_assert_int_eq(0, s21_round(val, &res));
 }
 END_TEST
@@ -1274,7 +1274,7 @@ END_TEST
 START_TEST(round_5) {
   s21_decimal val = {{26, 0, 0, 0}};
   s21_decimal res = {0};
-  setScale(&val, 1);
+  s21_setScale(&val, 1);
   ck_assert_int_eq(0, s21_round(val, &res));
 }
 END_TEST
@@ -1290,7 +1290,7 @@ END_TEST
 START_TEST(round_7) {
   s21_decimal val = {{118, 0, 0, 0}};
   s21_decimal res = {0};
-  setScale(&val, 1);
+  s21_setScale(&val, 1);
   ck_assert_int_eq(0, s21_round(val, &res));
 }
 END_TEST
@@ -1298,7 +1298,7 @@ END_TEST
 START_TEST(round_8) {
   s21_decimal val = {{125, 0, 0, 0}};
   s21_decimal res = {0};
-  setScale(&val, 1);
+  s21_setScale(&val, 1);
   ck_assert_int_eq(0, s21_round(val, &res));
 }
 END_TEST
@@ -1306,7 +1306,7 @@ END_TEST
 START_TEST(round_9) {
   s21_decimal val = {{128, 0, 0, 0}};
   s21_decimal res = {0};
-  setScale(&val, 1);
+  s21_setScale(&val, 1);
   s21_round(val, &res);
   float fres = 0;
   s21_from_decimal_to_float(res, &fres);
@@ -1317,7 +1317,7 @@ END_TEST
 
 START_TEST(from_decimal_to_float_0) {
   s21_decimal val = {{123456789, 0, 0, 0}};
-  setScale(&val, 5);
+  s21_setScale(&val, 5);
   float res = 1234.56789;
   float tmp = 0.;
   float *dst = &tmp;
@@ -1328,8 +1328,8 @@ END_TEST
 
 START_TEST(from_decimal_to_float_1) {
   s21_decimal val = {{123456789, 0, 0, 0}};
-  setBit(&val, 127, 1);
-  setScale(&val, 5);
+  s21_setBit(&val, 127, 1);
+  s21_setScale(&val, 5);
   float res = -1234.56789;
   float tmp = 0.;
   float *dst = &tmp;
@@ -1362,7 +1362,7 @@ END_TEST
 
 START_TEST(from_decimal_to_int_0) {
   s21_decimal val = {{123456789, 0, 0, 0}};
-  setScale(&val, 5);
+  s21_setScale(&val, 5);
   int res = 1234;
   int tmp = 0;
   int *dst = &tmp;
@@ -1373,8 +1373,8 @@ END_TEST
 
 START_TEST(from_decimal_to_int_1) {
   s21_decimal val = {{123456789, 0, 0, 0}};
-  setBit(&val, 127, 1);
-  setScale(&val, 5);
+  s21_setBit(&val, 127, 1);
+  s21_setScale(&val, 5);
   int res = -1234;
   int tmp = 0.;
   int *dst = &tmp;
@@ -1410,7 +1410,9 @@ int main(void) {
   int nf;
 
   suite_add_tcase(s1, tc1_1);
-  tcase_add_test(tc1_1, is_less_0);  // s21_is_less
+    
+  // MARK: - s21_is_less
+  tcase_add_test(tc1_1, is_less_0);
   tcase_add_test(tc1_1, is_less_1);
   tcase_add_test(tc1_1, is_less_2);
   tcase_add_test(tc1_1, is_less_3);
@@ -1423,7 +1425,9 @@ int main(void) {
   tcase_add_test(tc1_1, is_less_10);
   tcase_add_test(tc1_1, is_less_11);
   tcase_add_test(tc1_1, is_less_12);
-  tcase_add_test(tc1_1, is_greater_0);  // s21_is_greater
+  
+  // MARK: - s21_is_greater
+  tcase_add_test(tc1_1, is_greater_0);
   tcase_add_test(tc1_1, is_greater_1);
   tcase_add_test(tc1_1, is_greater_2);
   tcase_add_test(tc1_1, is_greater_3);
@@ -1432,7 +1436,9 @@ int main(void) {
   tcase_add_test(tc1_1, is_greater_6);
   tcase_add_test(tc1_1, is_greater_7);
   tcase_add_test(tc1_1, is_greater_8);
-  tcase_add_test(tc1_1, is_greater_or_equal_0);  // s21_is_greater_or_equal
+    
+  // MARK: - s21_is_greater_or_equal
+  tcase_add_test(tc1_1, is_greater_or_equal_0);
   tcase_add_test(tc1_1, is_greater_or_equal_1);
   tcase_add_test(tc1_1, is_greater_or_equal_2);
   tcase_add_test(tc1_1, is_greater_or_equal_3);
@@ -1440,7 +1446,9 @@ int main(void) {
   tcase_add_test(tc1_1, is_greater_or_equal_5);
   tcase_add_test(tc1_1, is_greater_or_equal_6);
   tcase_add_test(tc1_1, is_greater_or_equal_7);
-  tcase_add_test(tc1_1, is_less_or_equal_0);  // s21_is_less_or_equal
+    
+  // MARK: - s21_is_less_or_equal
+  tcase_add_test(tc1_1, is_less_or_equal_0);
   tcase_add_test(tc1_1, is_less_or_equal_1);
   tcase_add_test(tc1_1, is_less_or_equal_2);
   tcase_add_test(tc1_1, is_less_or_equal_3);
@@ -1448,7 +1456,9 @@ int main(void) {
   tcase_add_test(tc1_1, is_less_or_equal_5);
   tcase_add_test(tc1_1, is_less_or_equal_6);
   tcase_add_test(tc1_1, is_less_or_equal_7);
-  tcase_add_test(tc1_1, is_equal_0);  // s21_is_equal
+    
+  // MARK: - s21_is_equal
+  tcase_add_test(tc1_1, is_equal_0);
   tcase_add_test(tc1_1, is_equal_1);
   tcase_add_test(tc1_1, is_equal_2);
   tcase_add_test(tc1_1, is_equal_3);
@@ -1457,7 +1467,9 @@ int main(void) {
   tcase_add_test(tc1_1, is_equal_6);
   tcase_add_test(tc1_1, is_equal_7);
   tcase_add_test(tc1_1, is_equal_8);
-  tcase_add_test(tc1_1, is_not_equal_0);  // s21_is_not_equal
+    
+  // MARK: - s21_is_not_equal
+  tcase_add_test(tc1_1, is_not_equal_0);
   tcase_add_test(tc1_1, is_not_equal_1);
   tcase_add_test(tc1_1, is_not_equal_2);
   tcase_add_test(tc1_1, is_not_equal_3);
@@ -1466,7 +1478,9 @@ int main(void) {
   tcase_add_test(tc1_1, is_not_equal_6);
   tcase_add_test(tc1_1, is_not_equal_7);
   tcase_add_test(tc1_1, is_not_equal_8);
-  tcase_add_test(tc1_1, sub_0);  // s21_sub
+    
+  // MARK: - s21_sub
+  tcase_add_test(tc1_1, sub_0);
   tcase_add_test(tc1_1, sub_1);
   tcase_add_test(tc1_1, sub_2);
   tcase_add_test(tc1_1, sub_3);
@@ -1488,7 +1502,9 @@ int main(void) {
   tcase_add_test(tc1_1, sub_19);
   tcase_add_test(tc1_1, sub_20);
   tcase_add_test(tc1_1, sub_21);
-  tcase_add_test(tc1_1, add_0);  // s21_add
+    
+  // MARK: - s21_add
+  tcase_add_test(tc1_1, add_0);
   tcase_add_test(tc1_1, add_1);
   tcase_add_test(tc1_1, add_2);
   tcase_add_test(tc1_1, add_3);
@@ -1507,7 +1523,9 @@ int main(void) {
   tcase_add_test(tc1_1, add_16);
   tcase_add_test(tc1_1, add_17);
   tcase_add_test(tc1_1, add_18);
-  tcase_add_test(tc1_1, mul_0);  // s21_mul
+    
+  // MARK: - s21_mul
+  tcase_add_test(tc1_1, mul_0);
   tcase_add_test(tc1_1, mul_1);
   tcase_add_test(tc1_1, mul_2);
   tcase_add_test(tc1_1, mul_3);
@@ -1522,21 +1540,29 @@ int main(void) {
   tcase_add_test(tc1_1, mul_12);
   tcase_add_test(tc1_1, mul_13);
   tcase_add_test(tc1_1, mul_14);
-  tcase_add_test(tc1_1, div_0);  // s21_div
+    
+  // MARK: - s21_div
+  tcase_add_test(tc1_1, div_0);
   tcase_add_test(tc1_1, div_1);
   tcase_add_test(tc1_1, div_2);
   tcase_add_test(tc1_1, div_3);
   tcase_add_test(tc1_1, div_4);
-  tcase_add_test(tc1_1, mod_0);  // s21_mod
+    
+  // MARK: - s21_mod
+  tcase_add_test(tc1_1, mod_0);
   tcase_add_test(tc1_1, mod_1);
   tcase_add_test(tc1_1, mod_2);
   tcase_add_test(tc1_1, mod_3);
   tcase_add_test(tc1_1, mod_4);
-  tcase_add_test(tc1_1, negate_0);  // negate
+    
+  // MARK: - s21_negate
+  tcase_add_test(tc1_1, negate_0);
   tcase_add_test(tc1_1, negate_1);
   tcase_add_test(tc1_1, negate_2);
   tcase_add_test(tc1_1, negate_3);
-  tcase_add_test(tc1_1, round_0);  // round
+    
+  // MARK: - s21_round
+  tcase_add_test(tc1_1, round_0);
   tcase_add_test(tc1_1, round_1);
   tcase_add_test(tc1_1, round_2);
   tcase_add_test(tc1_1, round_3);
@@ -1546,22 +1572,34 @@ int main(void) {
   tcase_add_test(tc1_1, round_7);
   tcase_add_test(tc1_1, round_8);
   tcase_add_test(tc1_1, round_9);
-  tcase_add_test(tc1_1, truncate_0);  // truncate
+    
+  // MARK: - s21_truncate
+  tcase_add_test(tc1_1, truncate_0);
   tcase_add_test(tc1_1, truncate_1);
   tcase_add_test(tc1_1, truncate_2);
   tcase_add_test(tc1_1, truncate_3);
   tcase_add_test(tc1_1, truncate_4);
-  tcase_add_test(tc1_1, floor_0);  // floor
+    
+  // MARK: - s21_floor
+  tcase_add_test(tc1_1, floor_0);
   tcase_add_test(tc1_1, floor_1);
   tcase_add_test(tc1_1, floor_2);
   tcase_add_test(tc1_1, floor_3);
-  tcase_add_test(tc1_1, from_decimal_to_float_0);  // from_decimal_to_float
+    
+  // MARK: - s21_from_decimal_to_float
+  tcase_add_test(tc1_1, from_decimal_to_float_0);
   tcase_add_test(tc1_1, from_decimal_to_float_1);
-  tcase_add_test(tc1_1, from_float_to_decimal_0);  // from_float_to_decimal
+    
+  // MARK: - s21_from_float_to_decimal
+  tcase_add_test(tc1_1, from_float_to_decimal_0);
   tcase_add_test(tc1_1, from_float_to_decimal_1);
-  tcase_add_test(tc1_1, from_decimal_to_int_0);  // from_decimal_to_int
+    
+  // MARK: - s21_from_decimal_to_int
+  tcase_add_test(tc1_1, from_decimal_to_int_0);
   tcase_add_test(tc1_1, from_decimal_to_int_1);
-  tcase_add_test(tc1_1, from_int_to_decimal_0);  // from_int_to_decimal
+    
+  // MARK: - s21_from_int_to_decimal
+  tcase_add_test(tc1_1, from_int_to_decimal_0);
   tcase_add_test(tc1_1, from_int_to_decimal_1);
 
   srunner_run_all(sr, CK_ENV);
