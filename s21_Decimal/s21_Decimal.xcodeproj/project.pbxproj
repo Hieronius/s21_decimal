@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DD3C53EA2BA3DA1A004699DA /* s21_decimal.h in Sources */ = {isa = PBXBuildFile; fileRef = DD3C53E92BA3DA1A004699DA /* s21_decimal.h */; };
 		DD9C2ABA2BBB9152009CA739 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2AB92BBB9152009CA739 /* Makefile */; };
+		DD9C2ABC2BBB9598009CA739 /* s21_test.c in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2ABB2BBB9598009CA739 /* s21_test.c */; };
+		DD9C2ABE2BBB996F009CA739 /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = DD9C2ABD2BBB996F009CA739 /* helpers.c */; };
 		DDA7A5AF2BA9D08400588BA0 /* other.c in Sources */ = {isa = PBXBuildFile; fileRef = DDA7A5AE2BA9D08400588BA0 /* other.c */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		DD3C53E62BA3DA1A004699DA /* s21_Decimal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = s21_Decimal; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3C53E92BA3DA1A004699DA /* s21_decimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = s21_decimal.h; sourceTree = "<group>"; };
 		DD9C2AB92BBB9152009CA739 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DD9C2ABB2BBB9598009CA739 /* s21_test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = s21_test.c; sourceTree = "<group>"; };
+		DD9C2ABD2BBB996F009CA739 /* helpers.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = helpers.c; sourceTree = "<group>"; };
 		DDA7A5AE2BA9D08400588BA0 /* other.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = other.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,9 +65,11 @@
 		DD3C53E82BA3DA1A004699DA /* s21_Decimal */ = {
 			isa = PBXGroup;
 			children = (
-				DD3C53E92BA3DA1A004699DA /* s21_decimal.h */,
-				DDA7A5AE2BA9D08400588BA0 /* other.c */,
 				DD9C2AB92BBB9152009CA739 /* Makefile */,
+				DD3C53E92BA3DA1A004699DA /* s21_decimal.h */,
+				DD9C2ABB2BBB9598009CA739 /* s21_test.c */,
+				DDA7A5AE2BA9D08400588BA0 /* other.c */,
+				DD9C2ABD2BBB996F009CA739 /* helpers.c */,
 			);
 			path = s21_Decimal;
 			sourceTree = "<group>";
@@ -125,9 +131,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9C2ABC2BBB9598009CA739 /* s21_test.c in Sources */,
 				DD9C2ABA2BBB9152009CA739 /* Makefile in Sources */,
 				DDA7A5AF2BA9D08400588BA0 /* other.c in Sources */,
 				DD3C53EA2BA3DA1A004699DA /* s21_decimal.h in Sources */,
+				DD9C2ABE2BBB996F009CA739 /* helpers.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
