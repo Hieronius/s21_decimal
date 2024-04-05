@@ -1,5 +1,6 @@
 #include "s21_decimal.h"
 
+// Из десимала в флоат
 int s21_from_decimal_to_float(s21_decimal src, float* dst) {
   int res = 1;
   if (dst) {
