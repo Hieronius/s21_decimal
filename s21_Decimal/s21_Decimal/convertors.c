@@ -22,6 +22,7 @@ int s21_from_decimal_to_float(s21_decimal src, float* dst) {
   return res;
 }
 
+// Из десимала в Инт
 int s21_from_decimal_to_int(s21_decimal src, int *dst) {
   int res = 1;
   if (src.bits[1] == 0 && src.bits[2] == 0) {
