@@ -75,6 +75,7 @@ int s21_from_float_to_decimal(float src, s21_decimal *dst) {
   return res;
 }
 
+// Из Инт в Десимал
 int s21_from_int_to_decimal(int src, s21_decimal *dst) {
   int res = 1;
   if (dst) {
