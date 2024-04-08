@@ -1,5 +1,6 @@
 #include "s21_decimal.h"
 
+// Логический сдвиг влево
 int s21_getBit(s21_decimal value, int bit) {
   return !!(value.bits[bit / 32] & (1u << (bit % 32)));
 }
