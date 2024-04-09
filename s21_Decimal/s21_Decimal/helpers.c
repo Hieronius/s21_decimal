@@ -11,6 +11,7 @@ int s21_getBitLast(s21_decimal value) {
   return bitLast;
 }
 
+// Установка бита
 s21_decimal *s21_setBit(s21_decimal *value, int pos, int bit) {
   if (pos / 32 < 4 && bit)
     value->bits[pos / 32] |= (1u << (pos % 32));
