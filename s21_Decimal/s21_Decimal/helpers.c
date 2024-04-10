@@ -20,6 +20,7 @@ s21_decimal *s21_setBit(s21_decimal *value, int pos, int bit) {
   return value;
 }
 
+// Добавить бит
 int s21_addBit(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) {
   int fres = 0, exp = 0;
   for (int i = 0; i < 96; i += 1) {
