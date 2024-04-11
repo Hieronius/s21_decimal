@@ -37,6 +37,7 @@ int s21_addBit(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) {
   return fres;
 }
 
+// Копировать из source в destination
 s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source) {
   for (int i = 0; i < 4; i += 1) destination->bits[i] = source.bits[i];
   return destination;
