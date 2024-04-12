@@ -43,6 +43,7 @@ s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source) {
   return destination;
 }
 
+// Обнулить байты
 s21_decimal* s21_reset(s21_decimal* value) {
   for (int i = 0; i < 4; i += 1) value->bits[i] = 0;
   return value;
