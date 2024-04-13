@@ -49,6 +49,7 @@ s21_decimal* s21_reset(s21_decimal* value) {
   return value;
 }
 
+// Получить знак
 int s21_getSign(s21_decimal value) {
   int result = !!(value.bits[3] & (1u << 31));
   return result;
