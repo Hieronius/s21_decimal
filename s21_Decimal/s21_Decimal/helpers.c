@@ -55,6 +55,7 @@ int s21_getSign(s21_decimal value) {
   return result;
 }
 
+// Установить знак
 s21_decimal *s21_setSign(s21_decimal *value, int bit) {
   value->bits[3] =
       (bit) ? (value->bits[3] | (1u << 31)) : (value->bits[3] & ~(1u << 31));
