@@ -62,6 +62,7 @@ s21_decimal *s21_setSign(s21_decimal *value, int bit) {
   return value;
 }
 
+// Получить масштаб
 int s21_getScale(s21_decimal value) {
   int result = (char)(value.bits[3] >> 16);
   return result;
