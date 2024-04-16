@@ -68,6 +68,7 @@ int s21_getScale(s21_decimal value) {
   return result;
 }
 
+// Установить масштаб
 s21_decimal *s21_setScale(s21_decimal *value, int scale) {
   if (scale >= 0 && scale <= 28) {
     int sign = s21_getSign(*value);
