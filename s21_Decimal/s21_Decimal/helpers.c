@@ -79,6 +79,7 @@ s21_decimal *s21_setScale(s21_decimal *value, int scale) {
   return value;
 }
 
+// Увеличить масштаб
 s21_decimal *s21_increaseScale(s21_decimal *value, int shift) {
   if (s21_getScale(*value) + shift < 29) {
     s21_setScale(value, s21_getScale(*value) + shift);
