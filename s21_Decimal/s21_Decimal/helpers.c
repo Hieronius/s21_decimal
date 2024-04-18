@@ -90,6 +90,7 @@ s21_decimal *s21_increaseScale(s21_decimal *value, int shift) {
   return value;
 }
 
+// Уменьшить масштаб
 s21_decimal *s21_decreaseScale(s21_decimal *value, int shift) {
   for (int y = 0; y < shift; y += 1) {
     unsigned long long overflow = value->bits[2];
