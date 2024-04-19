@@ -104,6 +104,7 @@ s21_decimal *s21_decreaseScale(s21_decimal *value, int shift) {
   return value;
 }
 
+// Выровнять масштаб
 void s21_alignmentScale(s21_decimal *value_1, s21_decimal *value_2) {
   if (s21_getScale(*value_1) != s21_getScale(*value_2)) {
     if (s21_getScale(*value_1) < s21_getScale(*value_2)) {
