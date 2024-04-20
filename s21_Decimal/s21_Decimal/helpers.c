@@ -121,6 +121,7 @@ void s21_alignmentScale(s21_decimal *value_1, s21_decimal *value_2) {
   }
 }
 
+// Конвертировать число
 s21_decimal *s21_convert(s21_decimal *value) {
   s21_decimal result = {{0, 0, 0, 0}};
   s21_decimal add = {{1, 0, 0, 0}};
