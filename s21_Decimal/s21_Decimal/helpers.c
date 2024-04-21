@@ -132,9 +132,11 @@ s21_decimal *s21_convert(s21_decimal *value) {
   return value;
 }
 
+// Проверка числа на соответствие Null
 int s21_isNull(s21_decimal value) {
   return !value.bits[0] && !value.bits[1] && !value.bits[2];
 }
+
 
 int s21_getFloatExp(float *value) {
   return ((*((int *)value) & ~(1u << 31)) >> 23) - 127;
