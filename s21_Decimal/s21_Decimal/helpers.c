@@ -142,6 +142,7 @@ int s21_getFloatExp(float *value) {
   return ((*((int *)value) & ~(1u << 31)) >> 23) - 127;
 }
 
+// Логические сдвиг влева
 s21_decimal *s21_leftShift(s21_decimal *value, int shift) {
   if (!(s21_getBitLast(*value) + shift > 95)) {
     for (int y = 0; y < shift; y += 1) {
