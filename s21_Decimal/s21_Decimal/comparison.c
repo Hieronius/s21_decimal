@@ -17,6 +17,7 @@ int s21_is_equal(s21_decimal value_1, s21_decimal value_2) {
   return res;
 }
 
+// Проверка числа. Первое число больше второго.
 int s21_is_greater(s21_decimal value_1, s21_decimal value_2) {
   int res = 0;
   int sign_a = s21_getSign(value_1), sign_b = s21_getSign(value_2);
