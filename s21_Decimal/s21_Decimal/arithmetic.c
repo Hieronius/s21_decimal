@@ -1,5 +1,6 @@
 #include "s21_decimal.h"
 
+// Сумма
 int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal* result) {
   int status = 0, valueSign_1 = s21_getSign(value_1),
       valueSign_2 = s21_getSign(value_2);
