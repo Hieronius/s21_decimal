@@ -28,7 +28,7 @@ int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal* result) {
   return status;
 }
 
-
+// Вычитание
 int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) {
   result->bits[0] = result->bits[1] = result->bits[2] = result->bits[3] = 0;
   int res = 1;
