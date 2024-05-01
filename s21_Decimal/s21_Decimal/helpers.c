@@ -137,7 +137,7 @@ int s21_isNull(s21_decimal value) {
   return !value.bits[0] && !value.bits[1] && !value.bits[2];
 }
 
-
+// Сдвиг
 int s21_getFloatExp(float *value) {
   return ((*((int *)value) & ~(1u << 31)) >> 23) - 127;
 }
