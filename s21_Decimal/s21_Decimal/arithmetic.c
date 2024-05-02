@@ -51,6 +51,7 @@ int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) {
   return res;
 }
 
+// Вычитание 2
 int s21_div1(s21_decimal value_1, s21_decimal value_2, s21_decimal *result,
              s21_decimal *tmp) {
   int res = 0;
