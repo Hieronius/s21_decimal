@@ -122,6 +122,7 @@ int s21_mul(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) {
   return res;
 }
 
+// Вычитание
 int s21_sub(s21_decimal value_1, s21_decimal value_2, s21_decimal* result) {
   int status = 0, valueSign_1 = s21_getSign(value_1),
       valueSign_2 = s21_getSign(value_2);
