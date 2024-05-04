@@ -73,6 +73,7 @@ int s21_addBit(s21_decimal value_1, s21_decimal value_2, s21_decimal *result);
 
 // Копируем содержимое из source в destination
 s21_decimal* s21_copy(s21_decimal* destination, s21_decimal source);
+// Обнулить содержимое
 s21_decimal* s21_reset(s21_decimal* value);
 
 int s21_getSign(s21_decimal value);
