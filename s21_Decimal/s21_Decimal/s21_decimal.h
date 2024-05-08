@@ -82,6 +82,7 @@ s21_decimal *s21_setSign(s21_decimal *value, int bit);
 
 // Получить масштаб
 int s21_getScale(s21_decimal value);
+// Установить масштаб
 s21_decimal *s21_setScale(s21_decimal *value, int scale);
 s21_decimal *s21_decreaseScale(s21_decimal *value, int shift);
 s21_decimal *s21_increaseScale(s21_decimal *value, int shift);
@@ -91,4 +92,3 @@ s21_decimal *s21_convert(s21_decimal *value);
 int s21_isNull(s21_decimal value);
 int s21_getFloatExp(float *value);
 s21_decimal *s21_leftShift(s21_decimal *value, int shift);
-
