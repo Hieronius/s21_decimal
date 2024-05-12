@@ -88,6 +88,7 @@ s21_decimal *s21_setScale(s21_decimal *value, int scale);
 s21_decimal *s21_decreaseScale(s21_decimal *value, int shift);
 // Увеличить масштаб
 s21_decimal *s21_increaseScale(s21_decimal *value, int shift);
+// Направить масштаб
 void s21_alignmentScale(s21_decimal *value_1, s21_decimal *value_2);
 
 s21_decimal *s21_convert(s21_decimal *value);
