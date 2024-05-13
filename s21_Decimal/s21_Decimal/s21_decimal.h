@@ -91,6 +91,7 @@ s21_decimal *s21_increaseScale(s21_decimal *value, int shift);
 // Направить масштаб
 void s21_alignmentScale(s21_decimal *value_1, s21_decimal *value_2);
 
+// Перевод значения
 s21_decimal *s21_convert(s21_decimal *value);
 int s21_isNull(s21_decimal value);
 int s21_getFloatExp(float *value);
