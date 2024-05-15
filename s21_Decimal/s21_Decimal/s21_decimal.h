@@ -96,4 +96,5 @@ s21_decimal *s21_convert(s21_decimal *value);
 // Является ли нилом
 int s21_isNull(s21_decimal value);
 int s21_getFloatExp(float *value);
+// Сдвиг влева
 s21_decimal *s21_leftShift(s21_decimal *value, int shift);
