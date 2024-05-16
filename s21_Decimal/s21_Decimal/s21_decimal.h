@@ -95,6 +95,7 @@ void s21_alignmentScale(s21_decimal *value_1, s21_decimal *value_2);
 s21_decimal *s21_convert(s21_decimal *value);
 // Является ли нилом
 int s21_isNull(s21_decimal value);
+// Получить значения float
 int s21_getFloatExp(float *value);
 // Сдвиг влева
 s21_decimal *s21_leftShift(s21_decimal *value, int shift);
